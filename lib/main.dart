@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ourblog/Admin.dart';
+import 'package:ourblog/Index.dart';
+import 'package:ourblog/User.dart';
 
 void main() {
   runApp(OurBlogApp());
@@ -36,7 +39,7 @@ class _OurBlogHomeWidgetState extends State<OurBlogHomeWidget>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("_selectedIndex = $_selectedIndex"),
+        child: _selectedIndex == 0 ? IndexWidget() : (_selectedIndex == 1 ? AdminWidget() : UserWidget()),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
