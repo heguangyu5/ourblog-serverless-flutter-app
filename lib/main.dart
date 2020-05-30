@@ -3,6 +3,8 @@ import 'package:ourblog/Admin.dart';
 import 'package:ourblog/Index.dart';
 import 'package:ourblog/User.dart';
 
+const BASE_URL = "https://service-k7ptizmv-1302170133.bj.apigw.tencentcs.com/release/ourblog";
+
 void main() {
   runApp(OurBlogApp());
 }
