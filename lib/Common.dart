@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:requests/requests.dart';
 
+import 'Index.dart';
 import 'User.dart';
 import 'Util.dart' as Util;
 import 'main.dart';
@@ -87,34 +88,43 @@ class Post extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    Widget trailingWidget;
     if (this.admin) {
-      trailingWidget = PopupMenuButton(
-        itemBuilder: (context) => [
-          PopupMenuItem(
-            value: 'edit',
-            child: FlatButton.icon(
-              onPressed: () {},
-              icon: Icon(Icons.edit),
-              label: Text('Edit'),
+      return ListTile(
+        title: Text(title),
+        trailing: PopupMenuButton(
+          itemBuilder: (context) => [
+            PopupMenuItem(
+              value: 'edit',
+              child: FlatButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.edit),
+                label: Text('Edit'),
+              ),
             ),
-          ),
-          PopupMenuItem(
-            value: 'delete',
-            child: FlatButton.icon(
-              onPressed: () {},
-              icon: Icon(Icons.clear),
-              label: Text('Delete'),
-            ),
-          )
-        ],
+            PopupMenuItem(
+              value: 'delete',
+              child: FlatButton.icon(
+                onPressed: () {},
+                icon: Icon(Icons.clear),
+                label: Text('Delete'),
+              ),
+            )
+          ],
+        )
       );
-    } else {
-      trailingWidget = Icon(Icons.arrow_right);
     }
+
     return ListTile(
       title: Text(title),
-      trailing: trailingWidget,
+      trailing: Icon(Icons.arrow_right),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PostWidget(this.id, this.title)
+          )
+        );
+      },
     );
   }
 }
