@@ -41,7 +41,7 @@ class _OurBlogHomeWidgetState extends State<OurBlogHomeWidget>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _selectedIndex == 0 ? IndexWidget() : (_selectedIndex == 1 ? AdminWidget() : UserWidget()),
+        child: _selectedIndex == 0 ? IndexWidget() : (_selectedIndex == 1 ? AdminWidget(_onItemTapped) : UserWidget()),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
