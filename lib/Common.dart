@@ -33,11 +33,19 @@ class PostListWithCategory extends StatelessWidget
           var views = categories.entries.map<PostList>((entry) => PostList(entry.key, this.admin)).toList();
           tabs.insert(0, Category("0", "Home"));
           views.insert(0, PostList("0", this.admin));
+          List<Widget> actions = [];
+          if (this.admin) {
+            actions.add(IconButton(
+              icon: Icon(Icons.add),
+              onPressed: () {},
+            ));
+          }
           return DefaultTabController(
             length: categories.length + 1,
             child: Scaffold(
               appBar: AppBar(
                 title: Text('Search Input Placeholder'),
+                actions: actions,
                 bottom: TabBar(
                   tabs: tabs,
                   isScrollable: true,
